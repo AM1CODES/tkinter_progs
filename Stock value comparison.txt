@@ -1,0 +1,108 @@
+import pandas as pd
+from pandas_datareader import data,wb
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import datetime
+import tkinter as tk
+
+#the start and end days can be changed in order to get the stock details within a certain time period.
+win = tk.Tk()
+win.title("Sasta Stock data Analyzer")
+win.geometry("300x150")
+win.iconbitmap(r'C:\Users\deepa\Downloads\Icons8-Ios7-Logos-Register-Editor.ico') #icon for the gui window
+
+def apple():  #apple stock details
+    start = datetime.datetime(2019, 4, 15)
+    end = datetime.datetime(2020, 4, 13)
+    AAPL = data.DataReader("AAPL", 'yahoo', start, end)
+    df = data.DataReader('AAPL', 'yahoo', start, end)
+    stock = pd.DataFrame(AAPL)
+    stock.columns.names = ['Stock Info']
+    c = stock.head()
+    #print(c)
+    returns = pd.DataFrame()
+    returns['Return'] = stock['Close'].pct_change()
+    b = returns.head()
+    #print(b)
+    c = stock.xs(key='Close', axis=1).plot()
+    plt.show(c)
+    plt.tight_layout()
+def google(): #google stock details.
+    start = datetime.datetime(2019, 4, 15)
+    end = datetime.datetime(2020, 4, 13)
+    GOOG = data.DataReader("GOOG", 'yahoo', start, end)
+    df = data.DataReader('GOOG', 'yahoo', start, end)
+    stock = pd.DataFrame(GOOG)
+    stock.columns.names = ['Stock Info']
+    c = stock.head()
+    #print(c)
+    returns = pd.DataFrame()
+    returns['Return'] = stock['Close'].pct_change()
+    b = returns.head()
+    #print(b)
+    c = stock.xs(key='Close', axis=1).plot()
+    plt.show(c)
+    plt.tight_layout()
+def microsoft(): #microsoft stock details
+    start = datetime.datetime(2019, 4, 15)
+    end = datetime.datetime(2020, 4, 13)
+    MSFT = data.DataReader("MSFT", 'yahoo', start, end)
+    df = data.DataReader('MSFT', 'yahoo', start, end)
+    stock = pd.DataFrame(MSFT)
+    stock.columns.names = ['Stock Info']
+    c = stock.head()
+    #print(c)
+    returns = pd.DataFrame()
+    returns['Return'] = stock['Close'].pct_change()
+    b = returns.head()
+    #print(b)
+    c = stock.xs(key='Close', axis=1).plot()
+    plt.show(c)
+    plt.tight_layout()
+def ibm(): #ibm stock details
+    start = datetime.datetime(2019, 4, 15)
+    end = datetime.datetime(2020, 4, 13)
+    IBM = data.DataReader("IBM", 'yahoo', start, end)
+    df = data.DataReader('IBM', 'yahoo', start, end)
+    stock = pd.DataFrame(IBM)
+    stock.columns.names = ['Stock Info']
+    c = stock.head()
+    #print(c)
+    returns = pd.DataFrame()
+    returns['Return'] = stock['Close'].pct_change()
+    b = returns.head()
+    #print(b)
+    c = stock.xs(key='Close', axis=1).plot()
+    plt.show(c)
+    plt.tight_layout()
+def tesla(): #Tesla stock details
+    start = datetime.datetime(2019, 4, 15)
+    end = datetime.datetime(2020, 4, 13)
+    TSLA = data.DataReader("TSLA", 'yahoo', start, end)
+    df = data.DataReader('TSLA', 'yahoo', start, end)
+    stock = pd.DataFrame(TSLA)
+    stock.columns.names = ['Stock Info']
+    c = stock.head()
+    #print(c)
+    returns = pd.DataFrame()
+    returns['Return'] = stock['Close'].pct_change()
+    b = returns.head()
+    #print(b)
+    c = stock.xs(key='Close', axis=1).plot()
+    plt.show(c)
+    plt.tight_layout()
+
+
+
+button = tk.Button(win,text = "Apple Stock",command = apple)
+button.pack()
+button1 = tk.Button(win,text = "Google Stock",command = google)
+button1.pack()
+button2 = tk.Button(win,text = "Microsoft Stock",command = microsoft)
+button2.pack()
+button3 = tk.Button(win,text = "IBM Stock",command = ibm)
+button3.pack()
+button4 = tk.Button(win,text = "Tesla Stock",command = tesla)
+button4.pack()
+win.mainloop() #closing  the GUI loop/window
