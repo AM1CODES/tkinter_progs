@@ -75,9 +75,6 @@ for item in realnames:
 
 realnames.reverse()
 
-#canvas = Canvas(win,width = 300,height = 300,bg = 'green')
-#canvas.pack()
-
 button_next = Button(win,text = 'Next Song',bg = 'black',fg = 'green',command = nextsong) #button to play the next song
 button_next.pack()
 
