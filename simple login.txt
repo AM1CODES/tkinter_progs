@@ -1,0 +1,21 @@
+
+import tkinter as tk
+
+win = tk.Tk()
+
+win.title("Simple Login") #title of our GUI window
+win.iconbitmap(r'C:\Users\deepa\Downloads\Icons8-Ios7-Logos-Register-Editor.ico') #icon/logo of the window
+
+label = tk.Label(win,text = "Username: ")
+label.grid(row=0,column =0)
+label1 = tk.Label(win,text = "Password: ")
+label1.grid(row=1,column =0)
+entry = tk.Entry(win) #to take entry of username from the user
+entry.grid(row = 0,column = 1)
+entry = tk.Entry(win) #to take entry of password
+entry.grid(row = 1,column = 1)
+
+button = tk.Button(win,text = "Login") #button to login
+button.grid(row = 3,column = 0)
+
+win.mainloop()
